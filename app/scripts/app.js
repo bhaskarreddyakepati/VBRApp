@@ -17,16 +17,28 @@ var myapp = angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
     'ngMaterial','ngMessages'
   ]);
+
+
+function watchLanguageChange($scope,propertiesfactory){
+  $scope.$watch(function () { return propertiesfactory.getProperties("no"); },
+    function (value) {
+      $scope.properties = value;
+      console.log("$scope.properties in login con inside:"+$scope.properties);
+    }
+  );
+}
 
 myapp.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/home.html',
+        controller: 'HomeController'
+      })
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeController'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -34,6 +46,6 @@ myapp.config(function ($routeProvider) {
         controllerAs: 'about'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
       });
   });
