@@ -4,6 +4,7 @@ myapp.factory('propertiesfactory', function($http,$q) {
     var properties={};
     return {
         getProperties: function (language) {
+          console.log("properties config:"+language);
             if (language!="no") {
                 return $http({
                     method: "GET",
