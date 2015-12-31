@@ -66,7 +66,9 @@ module.exports = function (grunt) {
         ]
       }
     },
-
+    properties: {
+      app: '<%= yeoman.app %>/resources/*.properties'
+    },
     // The actual grunt server settings
     connect: {
       options: {
@@ -477,6 +479,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
+    'properties',
     'cdnify',
     'cssmin',
     'uglify',
