@@ -66,9 +66,6 @@ module.exports = function (grunt) {
         ]
       }
     },
-    properties: {
-      app: '<%= yeoman.app %>/resources/*.properties'
-    },
     // The actual grunt server settings
     connect: {
       options: {
@@ -348,7 +345,7 @@ module.exports = function (grunt) {
         src: 'views/{,*/}*.html',
         dest: '.tmp/templateCache.js'
       }
-    },
+    }
 
     // ng-annotate tries to make the code safe for minification automatically
     // by using the Angular long form for dependency injection.
@@ -396,6 +393,11 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
+          cwd: '.tmp/resources',
+          dest: '<%= yeoman.dist %>/resources',
+          src: ['resources/*.properties']
+        }, {
+          expand: true,
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
@@ -406,12 +408,6 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
-      },
-      resources: {
-        expand: true,
-        cwd: '<%= yeoman.app %>/resources',
-        dest: '.tmp/resources/',
-        src: '{,*/}*.properties'
       }
     },
 
@@ -479,7 +475,6 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'properties',
     'cdnify',
     'cssmin',
     'uglify',
