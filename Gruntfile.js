@@ -345,7 +345,7 @@ module.exports = function (grunt) {
         src: 'views/{,*/}*.html',
         dest: '.tmp/templateCache.js'
       }
-    }
+    },
 
     // ng-annotate tries to make the code safe for minification automatically
     // by using the Angular long form for dependency injection.
