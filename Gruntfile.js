@@ -389,12 +389,7 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: '.tmp/assets',
-          dest: '<%= yeoman.dist %>/assets',
-          src: ['generated/*']
-        }, {
-          expand: true,
-          cwd: '.tmp/resources',
+          cwd: '<%= yeoman.app %>//resources',
           dest: '<%= yeoman.dist %>/resources',
           src: ['*.properties']
         }, {

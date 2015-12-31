@@ -8,7 +8,7 @@ myapp.factory('propertiesfactory', function($http,$q) {
             if (language!="no") {
                 return $http({
                     method: "GET",
-                    url: "../assets/tillster-" + language + ".properties",
+                    url: "../resources/tillster-" + language + ".properties",
                 }).then(function (response) {
                     if (typeof response.data === 'object') {
                         properties = response.data;
